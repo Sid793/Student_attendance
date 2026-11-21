@@ -151,12 +151,13 @@ The backend application creates the database and tables automatically on first s
 3. (Optional) Run `DATABASE_SETUP.sql` for the full schema
 
 ### Configure Connection
-Edit `backend/src/main/resources/application.properties`:
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/student_attendance_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-spring.datasource.username=root
-spring.datasource.password=YOUR_MYSQL_PASSWORD
+Set the database credentials and a private JWT signing key as environment variables before starting the backend. In PowerShell:
+```powershell
+$env:DB_USERNAME = "root"
+$env:DB_PASSWORD = "your-local-mysql-password"
+$env:JWT_SECRET = "a-private-random-key-at-least-32-characters-long"
 ```
+Keep these values private and do not commit them to Git.
 
 ---
 
